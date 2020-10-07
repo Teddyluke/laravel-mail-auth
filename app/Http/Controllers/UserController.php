@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Book;
+
+use App\Mail\UserAction;
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -16,10 +23,16 @@ class UserController extends Controller
   public function delete($id) {
 
     $book = Book::findOrFail($id);
-
     $book -> delete();
 
-      return redirect() -> route('home');
+    $user = Auth::user();
+
+    $action = "DELETE";
+
+    Mail::to('admin@test.it')->send(new UserAction($user, $book, $action));
+
+    return redirect() -> route('home');
+
   }
 
   public function create() {
