@@ -21,6 +21,9 @@ Route::get('/home', 'GuestController@index')->name('home');
 Route::get('/book/create', 'UserController@create')->name('book.create');
 Route::post('/book/store', 'UserController@store')->name('book.store');
 
+Route::get('/book/edit/{id}', 'UserController@edit')->name('book.edit');
+Route::post('/book/update/{id}', 'UserController@update')->name('book.update');
+
 Route::get('/book/del/{id}', 'UserController@delete')->name('book.del');
 
 Route::get('/book/{id}', 'GuestController@show')->name('book.show');

@@ -25,8 +25,8 @@
                   <div class="buttons">
                     <a class="btn btn-secondary" href="{{route('home')}}" role="button">GO BACK</a>
                     @auth
-                      <a class="btn btn-primary" href="" role="button">EDIT</a>
-                      <a class="btn btn-danger" href="{{route('book.del', $book -> id) }}" role="button">DELETE</a>
+                      <a class="btn btn-primary" href="{{route('book.edit', $book -> id)}}" role="button">EDIT</a>
+                      <a class="btn btn-danger" href="{{route('book.del', $book -> id)}}" role="button">DELETE</a>
                     @endauth
 
                   </div>

@@ -25,7 +25,7 @@ class UserController extends Controller
   public function create() {
 
     return view('new-book');
-    
+
   }
 
   public function store(Request $request) {
@@ -35,5 +35,24 @@ class UserController extends Controller
     $book = Book::create($data);
 
     return redirect() -> route('home');
+  }
+
+  public function edit($id) {
+
+    $book = Book::findOrFail($id);
+
+    return view('edit-book', compact('book'));
+
+  }
+
+  public function update(Request $request, $id) {
+
+    $data = $request -> all();
+
+    $book= Book::findOrFail($id);
+    $book -> update($data);
+
+    return redirect() -> route ('home');
+
   }
 }
