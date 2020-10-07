@@ -5,7 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">
+                  <div class="left-card-header">
+                    Lista Libri
+                  </div>
+                  <div class="right-card-header">
+                    <a class="btn btn-success" href="{{route('book.create')}}" role="button">Nuovo Libro</a>
+                  </div>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +21,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <ul>
+                      @foreach ($books as $book)
+                        <li>
+                          Titolo: <a href="{{route('book.show', $book -> id)}}">{{$book -> title}}</a>
+                        </li>
+                      @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

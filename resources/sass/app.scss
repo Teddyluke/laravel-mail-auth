@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.card-header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .card-body {
+
+    ul {
+      list-style: none;
+    }
+
+    .infobox {
+      padding: 10px 0;
+
+      h4 {
+        display: inline-block;
+      }
+    }
+  }
+}
